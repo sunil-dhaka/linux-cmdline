@@ -1,0 +1,18 @@
+some useful commands to know about shell
+date: to display current time and date
+cal: nice little calender in shell
+df: to know what is taking your harddrive space
+free: to know free space info on RAM
+Note above both commands take "-h" to show space in GB/MB
+shit
+I was trying to overwrite above lines with "shit" but forgot to change ">>" to ">" :)
+\n
+so echo does not leave space lines
+------------------------------------
+some important commands to get help
+curl cht.sh/command ## needs internet connection to get cheat-sheet
+man command ## to get manpage about that command
+command --help
+echo "line to add" | tee newfile.txt
+echo "line to add" | tee -a existingFile.txt
+------------exit-------------

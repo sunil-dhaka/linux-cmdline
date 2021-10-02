@@ -1,0 +1,7 @@
+unix OS navigation commands
+pwd
+cd directory-to-change-to[relative or absolute path] | cd .. | cd - | cd ~username[when there are multiple users]
+ls [lists all files and dirs] | ls -la[hiddln files and folders also shown with details]
+todo: create a new user and write some files
+-----install and try out "tree" command to understand navigation better
+----------------exit-------------

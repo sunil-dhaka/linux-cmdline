@@ -1,0 +1,3 @@
+--------explore the damn system---------
+ls /path/to/directory -- to diplay contents of that dirs
+ls /path/to/directory1 /path/to/dir2 -- to diplay contents of multiple dirs -- very useful when comapring folders:::::
