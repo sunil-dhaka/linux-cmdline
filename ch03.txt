@@ -1,3 +1,12 @@
 --------explore the damn system---------
 ls /path/to/directory -- to diplay contents of that dirs
 ls /path/to/directory1 /path/to/dir2 -- to diplay contents of multiple dirs -- very useful when comapring folders:::::
+file [path-to-the-file] :::: shows what type of file it is
+less [path-to-txt-file] ::: with less command you do not need to fill your whole terminal screen with text, it is like opening a book; taking a look into it; and then throwing it away -- better than cat ahaa..
+to exit from less press "q"
+b & space -- page :: up & down -- one line :: G & g -- end & start :: "/character" & n -- search chars :: h -- help
+less is more
+there are lots of directories[default] in root[where it all begins] cd / and explore
+symbolic links[soft links] is one of the best features of linux
+hard links are also there
+-----------------------exit-----------------------

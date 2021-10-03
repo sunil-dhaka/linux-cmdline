@@ -1,0 +1,103 @@
+-----------personal notes from linux-cmdline------------
+# commands to work with	
+cp—Copy files and directories.
+mv—Move/rename files and directories.
+mkdir—Create directories.
+rm—Remove files and directories.
+ln—Create hard and symbolic links.
+
+## wildcards:
+also known as `globbing`
+tl;dw --> see this section in book
+
+## mkdir to make nested direcs
+
+Exa:
+
+mkdir -p I/want/to/make/sigle/thread/nested/dirs
+```
+└── want
+    └── to
+        └── make
+            └── sigle
+                └── thread
+                    └── nested
+                        └── dirs
+```
+
+mkdir -p I/{want,to/{make,multiple/{thread,nested/dirs}}}
+```
+├── to
+│   ├── make
+│   └── multiple
+│       ├── nested
+│       │   └── dirs
+│       └── thread
+└── want
+```
+
+mkdir -p I/{want/{beep,boop/foo},also-want/{deep,doop/foo{tap,map}}}
+```
+├── also-want
+│   ├── deep
+│   └── doop
+│       ├── foomap
+│       └── footap
+└── want
+    ├── beep
+    └── boop
+        └── foo
+
+```
+
+mkdir -p I/{want/{beep,boop/foo},also-want/{deep,doop/foo/{tap,map}}}
+
+```
+├── also-want
+│   ├── deep
+│   └── doop
+│       └── foo
+│           ├── map
+│           └── tap
+└── want
+    ├── beep
+    └── boop
+        └── foo
+```
+
+## copy files
+flag options with cp:
+
+-i --interactive
+-r --recursive //for dirs
+-v --verbose //show what shit is being done to my pc
+-u --update //only move that don't exist or are newer than previous ::::::::
+
+exa:
+cp -i file1[exists] file2
+cp -v dir1/* dir2 //all from dir1 goes to dir2
+
+## move or rename
+same options
+
+-i --interactive
+-r --recursive //for dirs
+-v --verbose //show what shit is being done to my pc
+-u --update //only move that don't exist ::::::::
+
+
+++++++++++++
+Here is a useful tip: Whenever you use wildcards with rm (besides carefully
+checking your typing!), test the wildcard first with ls. This will let you see the
+files that will be deleted. Then press the up arrow key to recall the command
+and replace the ls with rm.
++++++++++++++
+
+## hard and soft{sym} links
+++++++++++
+this is a bit new topic practice this part again after some days, to recall and rewrite in your hard-drive:)
+++++++++++
+
+ln file1 file1-hard
+
+ln -s file1 file1-symbolic

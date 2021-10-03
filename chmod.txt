@@ -1,0 +1,21 @@
+# Roles
+u - user (owner of the file)
+g - group (members of file's group)
+o - global (all users who are not owner and not part of group)
+a - all (all 3 roles above)
+
+# Numeric representations
+7 - full (rwx)
+6 - read and write (rw-)
+5 - read and execute (r-x)
+4 - read only (r--) ---------------- 4
+3 - write and execute (-wx)
+2 - write only (-w-) ----------------- 2
+1 - execute only (--x) ------------------ 1
+0 - none (---)
+
+Exa:
+```sh
+chmod 666 csr.txt # all gets rw permissions
+chmod 644 csr.txt # only user has re permissions but group and others have only read permission
+```
