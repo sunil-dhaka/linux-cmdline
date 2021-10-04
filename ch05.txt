@@ -1,0 +1,68 @@
+----------------------personal notes from linux-cmdline-------------------------
+
+## commands explained
+
+type—Indicate how a command name is interpreted.
+
+which—Display which executable program will be executed.
+
+man—Display a command’s manual page.
+
+## extras
+man section search_term
+section is a number from 1 to 8:
+
+## to know which nubers are availabe for a command use either of::
+
+man -k command
+
+apropos command
+
+apropos—Display a list of appropriate commands. ------------
+
+```
+## apropos displays appropriate command
+```
+
+info—Display a command’s info entry.
+
+## extras
+The info program reads info files, which are tree-structured into indi-
+vidual nodes, each containing a single topic.
+
+
+whatis—Display a very brief description of a command. -------------
+
+alias—Create an alias for a command.
+
+## extras
+Before
+we do that, it would be a good idea to find out if the name test is already
+being used. Use `type` to find out.
+
+--help :: not available for all commands though
+
+# finer points highlight:::::::
+
+Most of the command-line programs we have discussed so far are part
+of the GNU Project’s coreutils package.
+
+The gzip package includes a special version of
+less called zless, which will display the contents of gzip-compressed text
+files.
+
+Checkout:: /use/share/doc folder for more commands used by applications
+
+# to remove alias use
+unalias
+
+or remove it from .bashrc file
+
+## to know all alias in shell:
+
+just type `alias` :)
+
+
+
+
+-----------------------exit-------------------------
