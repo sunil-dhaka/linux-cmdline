@@ -1,0 +1,145 @@
+---------- personal notes from linux-cmdline -----------
+
+Commands:
+# ping -- to send an icmp echo-request to network hosts.
+
+exa: 
+
+ping google.com -- by domain name
+ping 8.8.8.8 -- by ip addr
+
+ping localhost
+ping 127.0.0.1
+
+- to stop use ctrl+c
+- when stopped shows such stats:
+```
+--- google.com ping statistics ---
+4 packets transmitted, 3 received, 25% packet loss, time 3003ms
+rtt min/avg/max/mdev = 115.351/216.117/358.475/103.520 ms
+OR
+--- google.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 107.812/149.425/225.179/48.876 ms
+```
+
+- in first ping we have lost 1 package out of 4. In second there is 0% loss.
+
+- Note: A properly performing network will exhibit zero percent packet loss. A successful ping will indicate that the elements of the network (its interface cards, cabling, routing, and gateways)
+are in generally good working order.
+
+# traceroute -- it prints the route packets trace to the network hosts
+
+exa:
+traceroute youtube.com -- both ip addr or domain name allowed [DNS takes care of that]
+
+traceroute localhost
+```
+traceroute to localhost (127.0.0.1), 30 hops max, 60 byte packets
+ 1  localhost (127.0.0.1)  0.751 ms  0.669 ms  0.624 ms
+```
+
+traceroute ubuntuS -- it is my own openssh-server name
+
+- Points: 
+1. For routers that provide
+identifying information, we see their hostnames, IP addresses, and perform-
+ance data, which include three samples of round-trip time from the local
+system to the router. 
+2. For routers that do not provide identifying information
+(because of router configuration, network congestion, firewalls, etc.), we see
+asterisks(*) as in the line for hop number two.
+
+# netstat -- Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+
+exa:
+netstat -ie 
+-- give same result as ifconfig or ipconfig on mac
+
+# ftp—Internet file transfer program.
+
+exa:
+ftp ftp.microsoft.com
+
+- it is a file transfer protocol that can be used from cmdline by a client. 
+- not secure as transfers password and usernames in plain text without any kind of encription. old times tool to transfer files over network from one pc to another.
+- most of these don't anymore exit so yeah that is there. Google and see if you can find other.
+- URIs starting with the protocol ftp://
+- to exit type quit/bye/exit :: same applies for iftp or sftp
+
+# lftp—An improved Internet file transfer program.
+
+- It works much like the traditional ftp program but has many additional convenience
+features, 
+	- including multiple-protocol[this is important that it supports various types of protocols] support (including HTTP), 
+	- automatic
+retry on failed downloads, 
+	- background processes, 
+	- tab completion of pathnames, and many more.
+
+
+
+# wget—Non-interactive network downloader.
+
+exa:
+wget -O filename-you-want.extension source-of-file
+wget -O sam.png [source of image]
+
+wget -P inwhich-dir-and-name source of file
+wget -P Downloads/sam.png [source of image]
+
+- files could be images and whatever :: just try it out or see cheat sheet
+
+
+# ssh—OpenSSH SSH client (remote login program).
+
+exa:
+
+ssh sunild@server-name
+# at first asks you to confirm 
+:: if shows warning then could be due to
+- First, an attacker may be attempting a man-in-the-middle attack. This is rare, because every-
+body knows that ssh alerts the user to this. 
+- The more likely culprit is that the remote system has been changed somehow; for example, its operating system or SSH server has been reinstalled. In the interests of security and
+safety, however, the first possibility should not be dismissed out of hand.
+Always check with the administrator of the remote system when this message
+occurs.
+- ssh would just close the connection for your security
+- after seeing the warning message; go and edit[delete that hosts line] .ssh/known-hosts file appropriately and according to the message shown
+- try to re-connect
+
+ssh -X sunild@server-name
+rstudio
+- this opens rstudio GUI in your local computer that is running on remote server/machine
+
+ssh server-name 'command want to exec on remote server'
+ssh server-name 'ls -la' > store-output-on-local-machine-pwd.txt
+ssh server-name 'ls -la > store-output-on-remote-machine-pwd.txt'
+- here no username is being used; it will be allowed when both machines have username same
+- here importance of ''(quotes) is very much. there slight replacement can mean different things.
+-  This is done because we do not want
+the pathname expansion performed on the local machine; rather, we want it
+to be performed on the remote system. Likewise, 
+
+###### read the section on tunneling with ssh #######
+focus on the word tunnel. meaning ssh creates a secrure tunnel that transfers encrypted data over network; using ssh-keys we can decrypt these data-files,,, not sure I am writing technically correct 
+
+
+# scp—Secure copy (remote file copy program).
+
+exa:
+scp username@server:/full/path/to/file-or-folder . [. to get file-or-folder in pwd]
+scp files-needs-to-sent username@server:/full/path
+scp -r[--recursive] folder-to-send username@server:/full/path
+
+- some server have specific ssh option, that can be specified using -o [ssh_option]. see --help or man pages or cheat sheet
+- The first, scp (secure copy) is used much like the familiar cp program to copy files. The most notable difference is that the source or destination pathname may be preceded with
+the name of a remote host 
+- KexAlgorithms Specifies the available KEX (Key Exchange) algorithms. They can be speified after trying withour them and that lets you know which ssh options are available from remote-host.
+
+# sftp—Secure file transfer program.
+
+exa:
+
+sftp username@remote-server
+
