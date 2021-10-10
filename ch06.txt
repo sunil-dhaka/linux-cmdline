@@ -1,0 +1,57 @@
+_____ redirection: ch06_____
+
+# these commands are quite self explainotary
+-------------------------------------------
+cat—Concatenate files. 
+sort—Sort lines of text.
+uniq—Report or omit repeated lines.
+wc—Print newline, word, and byte counts for each file.
+-------------------------------------------
+grep—Print lines matching a pattern.
+ -- There are a couple of handy options for grep: -i, which causes grep to
+ignore case when performing the search (normally searches are case sensit-
+ive) and -v, which tells grep to print only lines that do not match the pattern.
+-n to show line number
+-------------------------------------------
+head—Output the first part of a file.
+-------------------------------------------
+tail—Output the last part of a file.
+Using the -f option, tail continues to monitor the file and when new
+lines are appended, they immediately appear on the display. This continues
+until you type CTRL-C.
+-------------------------------------------
+tee—Read from standard input and write to standard output and files.
+-------------------------------------------
+# cat:: it also can concate text files on each other and save them into another text file that contains
+-------------------------------------------
+redirect stdout:
+
+command that gives output on screen > text-file-to-store-screen-output
+
+- to append we can use >> in plcae of >
+- can create a new file(empty) using $ > file.txt
+-------------------------------------------
+redirect stderr:
+
+command that gives error on screen 2> text-file-to-store-screen-error
+
+- we have referred to the first three of these file streams as standard input,
+output, and error, the shell references them internally as file descriptors
+0, 1, and 2, respectively.
+- The file descriptor 2 is placed immediately before the redirection oper-
+ator to perform the redirection of standard error to the file error.txt.
+-------------------------------------------
+Redirecting Standard Output and Standard Error to One File
+- easy and short:
+	- ls -l /bin/usr &> ls-output.txt
+- a bit loner and complicated:
+	- ls -l /bin/usr > ls-output.txt 2>&1
+-------------------------------------------
+Disposing of Unwanted Output:
+- This file is a system device called a bit bucket,
+which accepts input and does nothing with it. To suppress error messages
+from a command, we do this
+ls -l /bin/usr 2> /dev/null
+-------------------------------------------
+pipeline is really important to work in a flow in shell. using them we can work effeciently in one-liners and gives more power to get excatly what we want
+-------------------------------------------
